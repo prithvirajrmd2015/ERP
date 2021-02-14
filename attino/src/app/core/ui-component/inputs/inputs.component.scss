@@ -1,0 +1,16 @@
+.at-btn {
+  padding: 13px 20px 12px;
+  background-color: #cc4b4b;
+  border-radius: 4px;
+  font-size: 17px;
+  font-weight: bold;
+  line-height: 20px;
+  color: #fff;
+  margin-bottom: 24px;
+
+  &:hover {
+    border: 1px solid #000;
+    background-color: transparent;
+    color: #000;
+  }
+}
