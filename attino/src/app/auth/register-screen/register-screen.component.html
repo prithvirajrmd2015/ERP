@@ -2,14 +2,39 @@
   <div class="container">
     <div class="card register-card">
       <div class="row no-gutters">
-        <div class="col-md-5">
-          <img
-            src="assets/image/loginBg.jpg"
-            alt="login"
-            class="login-card-img"
-          />
+        <div class="col-md-12">
+          <div class="card-body">
+            <div>
+              <div class="col-md-12">
+                <at-stepper #stepper [(counter)]="counter">
+                  <at-step>
+                    <div step-title>Title</div>
+                    <div step-content>
+                      Content 1<br />content 1.1 <br />
+                      content 1.2
+                    </div>
+                    <div step-action>
+                      <button (click)="stepper.nextStep()">nextStep</button>
+                    </div>
+                  </at-step>
+                  <at-step>
+                    <div step-title>Title 2</div>
+                    <div step-content>content 2</div>
+                    <div step-action>
+                      <button (click)="stepper.prevStep()">prevStep</button>
+                      <button (click)="stepper.nextStep()">nextStep</button>
+                    </div>
+                  </at-step>
+                  <at-step>
+                    <div step-title>Title 3</div>
+                    <div step-content>content 3</div>
+                    <div step-action>Action 3</div>
+                  </at-step>
+                </at-stepper>
+              </div>
+            </div>
+          </div>
         </div>
-
       </div>
     </div>
   </div>
