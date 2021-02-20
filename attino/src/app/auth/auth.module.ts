@@ -13,6 +13,7 @@ import {
   JwtModuleOptions,
   JWT_OPTIONS,
 } from '@auth0/angular-jwt';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -20,7 +21,7 @@ import {
   imports: [
     CommonModule,
     AuthRoutingModule,
-    CoreModule,
+    CoreModule,FormsModule,ReactiveFormsModule
   ],
   providers: [AuthGuardService, AuthService],
 })

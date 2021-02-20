@@ -1,55 +1,44 @@
 <main class="d-flex align-items-center min-vh-100 py-3 py-md-0">
-  <div class="container">
-    <div class="card login-card">
-      <div class="row no-gutters">
-        <div class="col-md-5">
-          <img
-            src="assets/image/loginBg.jpg"
-            alt="login"
-            class="login-card-img"
-          />
-        </div>
-        <div class="col-md-7">
-          <div class="card-body">
-            <div class="brand-wrapper">
-              <img src="assets/image/logo/logo.svg" alt="logo" class="logo" />
-            </div>
-            <p class="login-card-description">Sign into your account</p>
-            <form action="#!">
-              <div class="form-group">
-                <label for="email" class="sr-only">Email</label>
-                <at-input
-                  type="email"
-                  formControlName="email"
-                  placeholder="Email address"
-                >
-                </at-input>
-              </div>
-              <div class="form-group mb-4">
-                <label for="password" class="sr-only">Password</label>
-                <at-input
-                  type="password"
-                  formControlName="password"
-                  placeholder="***********"
-                >
-                </at-input>
-              </div>
-              <at-button formControlName="login" value="Login"></at-button>
-            </form>
-            <a class="forgot-password-link">Forgot password?</a>
-            <p class="login-card-footer-text">
-              Don't have an account?
-              <a routerLink="/auth/register" class="text-reset"
-                >Register here</a
+    <div class="container">
+        <div class="card login-card">
+            <div class="row no-gutters">
+                <div class="col-md-5">
+                    <img src="assets/image/loginBg.jpg" alt="login" class="login-card-img" />
+                </div>
+                <div class="col-md-7">
+                    <div class="card-body">
+                        <div class="brand-wrapper">
+                            <img src="assets/image/logo/logo.svg" alt="logo" class="logo" />
+                        </div>
+                        <p class="login-card-description">Sign into your account</p>
+                        <form [formGroup]="loginForm">
+                            <div class="form-group">
+                                <at-input lableString="Email" formControlName="userName" controlName="userName" type="email" placeholder="Email address">
+                                </at-input>
+                                <at-error [errorMessage]="errorMessage" key="userName" [userForm]="loginForm">
+                                </at-error>
+                            </div>
+                            <div class="form-group mb-4">
+                                <at-input lableString="Password" formControlName="password" controlName="password" type="password" placeholder="***********">
+                                </at-input>
+                                <at-error [errorMessage]="errorMessage" key="password" [userForm]="loginForm">
+                                </at-error>
+                            </div>
+                            <at-button name="login" (onClick)="formSubmit()" value="Login"></at-button>
+                        </form>
+                        <a class="forgot-password-link">Forgot password?</a>
+                        <p class="login-card-footer-text">
+                            Don't have an account?
+                            <a routerLink="/auth/register" class="text-reset">Register here</a
               >
             </p>
             <nav class="login-card-footer-nav">
               <a>Terms of use.</a>
-              <a>Privacy policy</a>
-            </nav>
-          </div>
+                            <a>Privacy policy</a>
+                            </nav>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </main>
