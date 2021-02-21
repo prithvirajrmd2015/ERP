@@ -6,6 +6,8 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { ApiHttpService } from 'src/app/core/services/api-service-call';
+import { AIP_CALL_TO } from 'src/app/core/services/config';
 import { ErrorComponent } from 'src/app/core/ui-component/error/error-component';
 
 @Component({
@@ -20,7 +22,10 @@ export class LoginScreenComponent implements OnInit {
     password: { required: 'Required password' },
   };
   showError = [''];
-  constructor(public formBuilder: FormBuilder) {}
+  constructor(
+    public formBuilder: FormBuilder,
+    public apiService: ApiHttpService
+  ) {}
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
@@ -31,5 +36,8 @@ export class LoginScreenComponent implements OnInit {
 
   formSubmit() {
     ErrorComponent.errorCheck.emit();
+    if (!this.loginForm.invalid) {
+      this.apiService.get(AIP_CALL_TO.login).subscribe((data: any) => {});
+    }
   }
 }

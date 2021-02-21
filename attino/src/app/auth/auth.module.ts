@@ -14,6 +14,7 @@ import {
   JWT_OPTIONS,
 } from '@auth0/angular-jwt';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ApiHttpService } from '../core/services/api-service-call';
 
 
 @NgModule({
@@ -23,6 +24,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AuthRoutingModule,
     CoreModule,FormsModule,ReactiveFormsModule
   ],
-  providers: [AuthGuardService, AuthService],
+  providers: [AuthGuardService, AuthService,ApiHttpService],
 })
 export class AuthModule {}
