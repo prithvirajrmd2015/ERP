@@ -9,6 +9,7 @@ import {
 import { ApiHttpService } from 'src/app/core/services/api-service-call';
 import { AIP_CALL_TO } from 'src/app/core/services/config';
 import { ErrorComponent } from 'src/app/core/ui-component/error/error-component';
+import { AlertService } from 'src/app/core/ui-component/toster';
 
 @Component({
   selector: 'app-login-screen',
@@ -24,7 +25,7 @@ export class LoginScreenComponent implements OnInit {
   showError = [''];
   constructor(
     public formBuilder: FormBuilder,
-    public apiService: ApiHttpService
+    public apiService: ApiHttpService,public alertService:AlertService
   ) {}
 
   ngOnInit(): void {
@@ -35,7 +36,9 @@ export class LoginScreenComponent implements OnInit {
   }
 
   formSubmit() {
-    ErrorComponent.errorCheck.emit();
+    ErrorComponent.errorCheck.emit(this.loginForm);
+    this.alertService.error('errorMessage', 'Opps');
+
     if (!this.loginForm.invalid) {
       this.apiService.get(AIP_CALL_TO.login).subscribe((data: any) => {});
     }

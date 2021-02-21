@@ -5,13 +5,16 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { BASE_URL } from './config';
 import { retry, catchError } from 'rxjs/operators';
+import { AlertService } from '../ui-component/toster';
 
 @Injectable()
 export class ApiHttpService {
   constructor(
     // Angular Modules
+    private alertService:AlertService,
     private http: HttpClient
-  ) {}
+  ) {
+  }
 
   public get = (url: string, options?: any): Observable<any> =>
     this.http.get(BASE_URL + url, options).pipe(
@@ -34,8 +37,8 @@ export class ApiHttpService {
         errorMessage = `Error: ${error.error.message}`;
       } else {
         errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
-      }
-      window.alert(errorMessage);
+      }    this.alertService=new AlertService();
+
       return throwError(errorMessage);
     }
 }

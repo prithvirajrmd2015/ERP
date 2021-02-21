@@ -8,5 +8,6 @@ import { HttpClientModule } from '@angular/common/http';
   declarations: [],
   imports: [CommonModule, UiComponentModule,ReactiveValidationModule,HttpClientModule],
   exports: [UiComponentModule,ReactiveValidationModule],
+  providers:[]
 })
 export class CoreModule {}

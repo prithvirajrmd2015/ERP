@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PositiionType } from './core/ui-component/toster';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'attino';
+  Position = PositiionType;
 }
