@@ -26,7 +26,7 @@
                             </div>
                             <at-button name="login" (onClick)="formSubmit()" value="Login"></at-button>
                         </form>
-                        <a class="forgot-password-link">Forgot password?</a>
+                        <a class="forgot-password-link" (click)="openModal('custom-modal-1')">Forgot password?</a>
                         <p class="login-card-footer-text">
                             Don't have an account?
                             <a routerLink="/auth/register" class="text-reset">Register here</a
@@ -42,3 +42,11 @@
         </div>
     </div>
 </main>
+
+
+
+<at-modal id="custom-modal-1" title="Sample">
+    <h1>A Custom Modal!</h1>
+    <p>Home page text</p>
+    <button (click)="closeModal('custom-modal-1');">Close</button>
+</at-modal>

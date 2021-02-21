@@ -1,0 +1,15 @@
+<div class="modal fade show" id="exampleModalLive" tabindex="-1" aria-labelledby="exampleModalLiveLabel" style="display: block; padding-right: 15px;" aria-modal="true" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLiveLabel">{{title}}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true" (click)="close()">×</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <ng-content></ng-content>
+            </div>
+        </div>
+    </div>
+</div>

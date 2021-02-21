@@ -12,6 +12,8 @@ import { ArchwizardModule } from "./wizard/archwizard.module";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { ErrorComponent } from "./error/error-component";
 import { AlertService } from "./toster";
+import { ModalModule, ModalService } from "./modal";
+import { ModalComponent } from "./modal/modal.component";
 
 @NgModule({
   declarations: [
@@ -21,9 +23,9 @@ import { AlertService } from "./toster";
     H2DisplayComponent,
     H3DisplayComponent,
     ParagraphDisplayComponent,
-    ErrorComponent,
+    ErrorComponent
   ],
-  imports: [CommonModule, ArchwizardModule, FormsModule, ReactiveFormsModule],
+  imports: [CommonModule, ArchwizardModule, FormsModule, ReactiveFormsModule,ModalModule],
   exports: [
     ButtonComponent,
     TextInputComponent,
@@ -32,7 +34,7 @@ import { AlertService } from "./toster";
     H3DisplayComponent,
     ParagraphDisplayComponent,
     ArchwizardModule,
-    ErrorComponent,
-  ],providers:[AlertService]
+    ErrorComponent,ModalModule
+  ],providers:[AlertService,ModalService]
 })
 export class UiComponentModule {}
